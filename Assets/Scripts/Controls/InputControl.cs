@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 
-public class InputControl : MonoBehaviour, IWalkControl
+public class InputControl : MonoBehaviour, IHorizontalControl
 {
-    public bool WalkLeft { get; private set; }
-    public bool WalkRight { get; private set; }
+    public bool MoveLeft { get; private set; }
+    public bool MoveRight { get; private set; }
 
-    // Update is called once per frame
     private void Update()
     {
         Reset();
@@ -15,15 +14,15 @@ public class InputControl : MonoBehaviour, IWalkControl
 
     private void Reset()
     {
-        WalkLeft = false;
-        WalkRight = false;
+        MoveLeft = false;
+        MoveRight = false;
     }
 
     private void CheckLeft()
     {
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            WalkLeft = true;
+            MoveLeft = true;
         }
     }
 
@@ -31,7 +30,7 @@ public class InputControl : MonoBehaviour, IWalkControl
     {
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
-            WalkRight = true;
+            MoveRight = true;
         }
     }
 }

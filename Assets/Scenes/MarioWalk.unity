@@ -277,6 +277,8 @@ GameObject:
   - component: {fileID: 1519418632}
   - component: {fileID: 1519418636}
   - component: {fileID: 1519418637}
+  - component: {fileID: 1519418639}
+  - component: {fileID: 1519418638}
   m_Layer: 0
   m_Name: Mario
   m_TagString: Untagged
@@ -422,5 +424,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12b6282842e92d5488543576e72e22e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1519418638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519418631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 939e150393a35e2448de70a2db1093b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1519418639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519418631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb963f0719078f4e85cac41c0a531a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
