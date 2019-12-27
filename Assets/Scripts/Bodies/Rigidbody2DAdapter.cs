@@ -3,8 +3,10 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class Rigidbody2DAdapter : MonoBehaviour, IBody2D
 {
+    public float HorizontalSpeed => body.velocity.x;
+
     [SerializeField]
-    private readonly float horizontalSpeed = 100f;
+    private float horizontalSpeed = 500f;
     private Rigidbody2D body;
     private Vector2 horizontalMoveVector;
 
