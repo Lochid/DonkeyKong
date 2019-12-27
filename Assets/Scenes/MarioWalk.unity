@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 1519418633}
   - component: {fileID: 1519418632}
   - component: {fileID: 1519418636}
+  - component: {fileID: 1519418637}
   m_Layer: 0
   m_Name: Mario
   m_TagString: Untagged
@@ -411,3 +412,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1519418637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519418631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12b6282842e92d5488543576e72e22e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
