@@ -2,4 +2,5 @@
 {
     IMotionState Idle();
     IMotionState Walk();
+    IMotionState Fall();
 }

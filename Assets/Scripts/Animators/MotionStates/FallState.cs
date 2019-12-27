@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public class WalkState : IMotionState
+public class FallState : IMotionState
 {
     private Animator _motionAnimator;
 
-    public WalkState(Animator motionAnimator)
+    public FallState(Animator motionAnimator)
     {
         _motionAnimator = motionAnimator;
-        _motionAnimator.SetTrigger("Walk");
+        _motionAnimator.SetTrigger("Fall");
     }
 
     public IMotionState Idle()
@@ -17,11 +17,11 @@ public class WalkState : IMotionState
 
     public IMotionState Walk()
     {
-        return this;
+        return new WalkState(_motionAnimator);
     }
 
     public IMotionState Fall()
     {
-        return new FallState(_motionAnimator);
+        return this;
     }
 }

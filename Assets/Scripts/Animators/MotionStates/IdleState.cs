@@ -19,4 +19,9 @@ public class IdleState : IMotionState
     {
         return new WalkState(_motionAnimator);
     }
+
+    public IMotionState Fall()
+    {
+        return new FallState(_motionAnimator);
+    }
 }

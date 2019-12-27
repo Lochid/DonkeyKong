@@ -6,8 +6,9 @@ public class Motion : MonoBehaviour, IWalkMotion
 {
     public bool WalkLeft => body.HorizontalSpeed < -0.5f;
     public bool WalkRight => body.HorizontalSpeed > 0.5f;
-    public bool Stop => !WalkLeft && !WalkRight;
-    public bool Walk => !Stop;
+    public bool Walk => WalkLeft || WalkRight;
+    public bool Fall => Mathf.Abs(body.VerticalSpeed) > 0.5f;
+    public bool Stop => !Walk && !Fall;
 
     private IHorizontalControl horizontalControl;
     private IBody2D body;
@@ -27,7 +28,7 @@ public class Motion : MonoBehaviour, IWalkMotion
 
     private void CheckAndMoveLeft()
     {
-        if (horizontalControl.MoveLeft)
+        if (horizontalControl.MoveLeft && !Fall)
         {
             body.MoveLeft();
         }
@@ -35,7 +36,7 @@ public class Motion : MonoBehaviour, IWalkMotion
 
     private void CheckAndMoveRight()
     {
-        if (horizontalControl.MoveRight)
+        if (horizontalControl.MoveRight && !Fall)
         {
             body.MoveRight();
         }
