@@ -4,12 +4,12 @@
 public class ElevatorGenerator : MonoBehaviour
 {
     [SerializeField]
-    private  ElevatorMotion elevator;
+    private ElevatorMotion elevator = null;
 
     [SerializeField]
-    private  float timeOffset;
+    private float timeOffset = 0;
 
-    private  float currentTime = 0;
+    private float currentTime = 0;
     private ITimeAdapter timeAdapter;
 
     private void Start()

@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-[RequireComponent(typeof(IBody2D))]
+[RequireComponent(typeof(ITransformAdapter))]
+[RequireComponent(typeof(ITimeAdapter))]
 public class ElevatorMotion : MonoBehaviour
 {
     [SerializeField]
@@ -11,15 +12,17 @@ public class ElevatorMotion : MonoBehaviour
 
     public event Action<ElevatorMotion> CompletedMotion;
 
-    private IBody2D body;
+    private ITransformAdapter transformAdapter;
+    private ITimeAdapter timeAdapter;
     private float startPosition;
     private bool done = false;
 
     private void Start()
     {
-        body = GetComponent<IBody2D>();
-        startPosition = body.PositionY;
+        transformAdapter = GetComponent<ITransformAdapter>();
+        startPosition = transformAdapter.position.y;
         CompletedMotion += (ElevatorMotion motion) => { };
+        timeAdapter = GetComponent<ITimeAdapter>();
     }
 
     private void FixedUpdate()
@@ -30,7 +33,7 @@ public class ElevatorMotion : MonoBehaviour
 
     private void CheckPosition()
     {
-        if (Math.Abs(body.PositionY - startPosition) >= Math.Abs(lastPosition))
+        if (Math.Abs(transformAdapter.position.y - startPosition) >= Math.Abs(lastPosition))
         {
             done = true;
             CompletedMotion(this);
@@ -42,7 +45,12 @@ public class ElevatorMotion : MonoBehaviour
     {
         if (!done)
         {
-            body.AddVerticalPosition(verticalSpeed);
+            AddVerticalPosition(verticalSpeed);
         }
+    }
+
+    private void AddVerticalPosition(float pos)
+    {
+        transformAdapter.Translate(new Vector2(0, 1) * timeAdapter.deltaTime * pos);
     }
 }

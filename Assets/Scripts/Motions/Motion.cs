@@ -3,7 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(IHorizontalControl))]
 [RequireComponent(typeof(IJumpControl))]
-[RequireComponent(typeof(IBody2D))]
+[RequireComponent(typeof(IRigidbodyAdapter))]
 public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
 {
     [SerializeField]
@@ -11,23 +11,23 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
     [SerializeField]
     private float verticalSpeed = 500f;
 
-    public bool WalkLeft => body.HorizontalSpeed < -0.5f;
-    public bool WalkRight => body.HorizontalSpeed > 0.5f;
+    public bool WalkLeft => rigidbodyAdapter.velocity.x < -0.5f;
+    public bool WalkRight => rigidbodyAdapter.velocity.x > 0.5f;
     public bool Walk => WalkLeft || WalkRight;
-    public bool Fall => Mathf.Abs(body.VerticalSpeed) > 1f;
+    public bool Fall => Mathf.Abs(rigidbodyAdapter.velocity.y) > 1f;
     public bool Stop => !Walk && !Fall;
     public bool Land { get; private set; } = false;
 
     private IHorizontalControl horizontalControl;
     private IJumpControl jumpControl;
-    private IBody2D body;
+    private IRigidbodyAdapter rigidbodyAdapter;
     private bool prevFall;
 
     private void Start()
     {
         horizontalControl = GetComponent<IHorizontalControl>();
         jumpControl = GetComponent<IJumpControl>();
-        body = GetComponent<IBody2D>();
+        rigidbodyAdapter = GetComponent<IRigidbodyAdapter>();
     }
 
     private void FixedUpdate()
@@ -44,7 +44,7 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
     {
         if (horizontalControl.MoveLeft && !Fall)
         {
-            body.PutHorizontalForce(-horizontalSpeed);
+            PutHorizontalForce(-horizontalSpeed);
         }
     }
 
@@ -52,7 +52,7 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
     {
         if (horizontalControl.MoveRight && !Fall)
         {
-            body.PutHorizontalForce(horizontalSpeed);
+            PutHorizontalForce(horizontalSpeed);
         }
     }
 
@@ -60,7 +60,7 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
     {
         if (jumpControl.Jump && !Fall)
         {
-            body.PutVerticalForce(verticalSpeed);
+            PutVerticalForce(verticalSpeed);
         }
     }
 
@@ -68,7 +68,7 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
     {
         if (!horizontalControl.MoveLeft && !horizontalControl.MoveRight && !Fall)
         {
-            body.PutHorizontalForce(0);
+            PutHorizontalForce(0);
         }
     }
 
@@ -87,5 +87,19 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
     private void UpdateFall()
     {
         prevFall = Fall;
+    }
+
+    private void PutHorizontalForce(float force)
+    {
+        var velocity = rigidbodyAdapter.velocity;
+        velocity.x = force;
+        rigidbodyAdapter.velocity = velocity;
+    }
+
+    private void PutVerticalForce(float force)
+    {
+        var velocity = rigidbodyAdapter.velocity;
+        velocity.y = force;
+        rigidbodyAdapter.velocity = velocity;
     }
 }
