@@ -2,9 +2,9 @@
 
 public class WalkState : IMotionState
 {
-    private Animator _motionAnimator;
+    private AnimatorAdapter _motionAnimator;
 
-    public WalkState(Animator motionAnimator)
+    public WalkState(AnimatorAdapter motionAnimator)
     {
         _motionAnimator = motionAnimator;
         _motionAnimator.SetTrigger("Walk");

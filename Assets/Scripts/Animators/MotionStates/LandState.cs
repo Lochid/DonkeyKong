@@ -2,9 +2,9 @@
 
 public class LandState : IMotionState
 {
-    private Animator _motionAnimator;
+    private AnimatorAdapter _motionAnimator;
 
-    public LandState(Animator motionAnimator)
+    public LandState(AnimatorAdapter motionAnimator)
     {
         _motionAnimator = motionAnimator;
         _motionAnimator.SetTrigger("Land");

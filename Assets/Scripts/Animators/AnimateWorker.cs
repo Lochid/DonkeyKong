@@ -2,7 +2,7 @@
 
 [RequireComponent(typeof(IWalkMotion))]
 [RequireComponent(typeof(IJumpMotion))]
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AnimatorAdapter))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class AnimateWorker : MonoBehaviour
 {
@@ -10,12 +10,12 @@ public class AnimateWorker : MonoBehaviour
     private MotionState _motionState;
     private IWalkMotion _walkMotion;
     private IJumpMotion _jumpMotion;
-    private Animator animator;
+    private AnimatorAdapter animator;
     private SpriteRenderer sprite;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponent<AnimatorAdapter>();
         _motionState = new MotionState(animator);
         _walkMotion = GetComponent<IWalkMotion>();
         _jumpMotion = GetComponent<IJumpMotion>();

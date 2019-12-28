@@ -2,9 +2,9 @@
 
 public class IdleState : IMotionState
 {
-    private Animator _motionAnimator;
+    private AnimatorAdapter _motionAnimator;
 
-    public IdleState(Animator motionAnimator)
+    public IdleState(AnimatorAdapter motionAnimator)
     {
         _motionAnimator = motionAnimator;
         _motionAnimator.SetTrigger("Idle");

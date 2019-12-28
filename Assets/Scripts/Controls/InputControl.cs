@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(IInputAdapter))]
 public class InputControl : MonoBehaviour, IHorizontalControl, IJumpControl
 {
     public bool MoveLeft { get; private set; }
     public bool MoveRight { get; private set; }
     public bool Jump { get; private set; }
+
+    private IInputAdapter input;
+
+    private void Start()
+    {
+        input = GetComponent<IInputAdapter>();
+    }
 
     private void Update()
     {
@@ -23,7 +31,7 @@ public class InputControl : MonoBehaviour, IHorizontalControl, IJumpControl
 
     private void CheckLeft()
     {
-        if (Input.GetAxisRaw("Horizontal") < 0)
+        if (input.GetAxisRaw(AxisRawType.Horizontal) < 0)
         {
             MoveLeft = true;
         }
@@ -31,7 +39,7 @@ public class InputControl : MonoBehaviour, IHorizontalControl, IJumpControl
 
     private void CheckRight()
     {
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        if (input.GetAxisRaw(AxisRawType.Horizontal) > 0)
         {
             MoveRight = true;
         }
@@ -39,11 +47,11 @@ public class InputControl : MonoBehaviour, IHorizontalControl, IJumpControl
 
     private void CheckJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (input.GetKeyDown(KeyCode.Space))
         {
             Jump = true;
         }
-        else
+        else if(input.GetKeyUp(KeyCode.Space))
         {
             Jump = false;
         }

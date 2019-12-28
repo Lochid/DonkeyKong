@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(ITimeAdapter))]
 public class ElevatorGenerator : MonoBehaviour
 {
     [SerializeField]
@@ -9,10 +10,16 @@ public class ElevatorGenerator : MonoBehaviour
     private  float timeOffset;
 
     private  float currentTime = 0;
+    private ITimeAdapter timeAdapter;
+
+    private void Start()
+    {
+        timeAdapter = GetComponent<ITimeAdapter>();
+    }
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
+        currentTime += timeAdapter.deltaTime;
 
         if (currentTime >= timeOffset)
         {
