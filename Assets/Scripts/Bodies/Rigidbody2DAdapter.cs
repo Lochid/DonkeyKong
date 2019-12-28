@@ -8,6 +8,8 @@ public class Rigidbody2DAdapter : MonoBehaviour, IBody2D
 
     [SerializeField]
     private float horizontalSpeed = 500f;
+    [SerializeField]
+    private float verticalSpeed = 500f;
     private Rigidbody2D body;
     private Vector2 horizontalMoveVector;
 
@@ -29,6 +31,13 @@ public class Rigidbody2DAdapter : MonoBehaviour, IBody2D
     {
         var velocity = body.velocity;
         velocity.x = horizontalSpeed;
+        body.velocity = velocity;
+    }
+
+    public void MoveUp()
+    {
+        var velocity = body.velocity;
+        velocity.y = verticalSpeed;
         body.velocity = velocity;
     }
 

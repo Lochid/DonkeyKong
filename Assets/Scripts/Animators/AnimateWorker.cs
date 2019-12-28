@@ -24,30 +24,32 @@ public class AnimateWorker : MonoBehaviour
 
     private void Update()
     {
-        var next = true;
-        if (next)
+        var moving = true;
+        var turning = true;
+        if (moving)
         {
-            next = !AnimateLand();
+            moving = !AnimateLand();
         }
-        if (next)
+        if (moving)
         {
-            next = !AnimateIdle();
+            moving = !AnimateFall();
+            turning = moving;
         }
-        if (next)
+        if (moving)
         {
-            next = !AnimateFall();
+            moving = !AnimateIdle();
         }
-        if (next)
+        if (moving)
         {
-            next = !AnimateWalk();
+            moving = !AnimateWalk();
         }
-        if (next)
+        if (turning)
         {
-            next = !TurnLeft();
+            turning = !TurnLeft();
         }
-        if (next)
+        if (turning)
         {
-            next = !TurnRight();
+            turning = !TurnRight();
         }
     }
 
