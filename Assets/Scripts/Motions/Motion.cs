@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(IHorizontalControl))]
+[RequireComponent(typeof(IJumpControl))]
 [RequireComponent(typeof(IBody2D))]
 public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
 {
@@ -12,12 +13,14 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
     public bool Land { get; private set; } = false;
 
     private IHorizontalControl horizontalControl;
+    private IJumpControl jumpControl;
     private IBody2D body;
     private bool prevFall;
 
     private void Start()
     {
         horizontalControl = GetComponent<IHorizontalControl>();
+        jumpControl = GetComponent<IJumpControl>();
         body = GetComponent<IBody2D>();
     }
 
@@ -25,6 +28,7 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
     {
         CheckAndMoveLeft();
         CheckAndMoveRight();
+        CheckAndMoveUp();
         CheckAndStop();
         CheckLand();
         UpdateFall();
@@ -46,9 +50,17 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
         }
     }
 
+    private void CheckAndMoveUp()
+    {
+        if (jumpControl.Jump && !Fall)
+        {
+            body.MoveUp();
+        }
+    }
+
     private void CheckAndStop()
     {
-        if (!horizontalControl.MoveLeft && !horizontalControl.MoveRight)
+        if (!horizontalControl.MoveLeft && !horizontalControl.MoveRight && !Fall)
         {
             body.Stop();
         }

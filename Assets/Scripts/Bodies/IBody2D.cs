@@ -4,5 +4,6 @@
     float VerticalSpeed { get; }
     void MoveLeft();
     void MoveRight();
+    void MoveUp();
     void Stop();
 }
