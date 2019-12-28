@@ -1,4 +1,4 @@
-﻿public interface IWalkMotion
+﻿public interface IWalkMotionState
 {
     bool WalkLeft { get; }
     bool WalkRight { get; }

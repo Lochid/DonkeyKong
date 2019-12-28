@@ -4,7 +4,7 @@
 public class ElevatorGenerator : MonoBehaviour
 {
     [SerializeField]
-    private ElevatorMotion elevator = null;
+    private RiseMotion elevator = null;
 
     [SerializeField]
     private float timeOffset = 0;

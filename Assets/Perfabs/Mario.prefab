@@ -19,7 +19,9 @@ GameObject:
   - component: {fileID: 7298486898565951954}
   - component: {fileID: 8821132150379287006}
   - component: {fileID: 2217343857146081328}
+  - component: {fileID: 8312231488502305348}
   - component: {fileID: 2217343857146081331}
+  - component: {fileID: 513507715713647041}
   - component: {fileID: 2217343857146081325}
   m_Layer: 0
   m_Name: Mario
@@ -228,6 +230,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b6282842e92d5488543576e72e22e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8312231488502305348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2217343857146081338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff39083e8af799498c7004a7d5f6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2217343857146081331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,8 +254,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 939e150393a35e2448de70a2db1093b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 500
-  verticalSpeed: 500
+--- !u!114 &513507715713647041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2217343857146081338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de23bff3b6966044783d552550a022ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2217343857146081325
 MonoBehaviour:
   m_ObjectHideFlags: 0

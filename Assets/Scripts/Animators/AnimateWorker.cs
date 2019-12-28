@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(IWalkMotion))]
-[RequireComponent(typeof(IJumpMotion))]
+[RequireComponent(typeof(IWalkMotionState))]
+[RequireComponent(typeof(IJumpMotionState))]
 [RequireComponent(typeof(AnimatorAdapter))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class AnimateWorker : MonoBehaviour
 {
 
     private MotionState motionState;
-    private IWalkMotion walkMotion;
-    private IJumpMotion jumpMotion;
+    private IWalkMotionState walkMotion;
+    private IJumpMotionState jumpMotion;
     private AnimatorAdapter animator;
     private SpriteRenderer sprite;
 
@@ -17,8 +17,8 @@ public class AnimateWorker : MonoBehaviour
     {
         animator = GetComponent<AnimatorAdapter>();
         motionState = new MotionState(animator);
-        walkMotion = GetComponent<IWalkMotion>();
-        jumpMotion = GetComponent<IJumpMotion>();
+        walkMotion = GetComponent<IWalkMotionState>();
+        jumpMotion = GetComponent<IJumpMotionState>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
