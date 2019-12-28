@@ -179,8 +179,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mario
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4636435505334164924, guid: 64a36e31990fb4e499d634028a0579a8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64a36e31990fb4e499d634028a0579a8, type: 3}
 --- !u!1 &1894889397
 GameObject:
@@ -271,16 +270,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 442946106457506817, guid: eeabce2fdf129c249ad7f297b090b674,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 442946106457506817, guid: eeabce2fdf129c249ad7f297b090b674,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 442946106457506828, guid: eeabce2fdf129c249ad7f297b090b674,
         type: 3}
       propertyPath: m_Name
@@ -340,11 +329,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 442946106457506831, guid: eeabce2fdf129c249ad7f297b090b674,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeabce2fdf129c249ad7f297b090b674, type: 3}
