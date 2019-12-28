@@ -399,5 +399,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElevatorSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 4554326578983543591, guid: a795ac23ddb5e5546b63d1d37d6f94a5,
+        type: 3}
+      propertyPath: elevator
+      value: 
+      objectReference: {fileID: 591976240152424293, guid: 1012a2ee0b9c39c459e396836364d23c,
+        type: 3}
+    - target: {fileID: 4554326578983543591, guid: a795ac23ddb5e5546b63d1d37d6f94a5,
+        type: 3}
+      propertyPath: obj
+      value: 
+      objectReference: {fileID: 591976240152424293, guid: 1012a2ee0b9c39c459e396836364d23c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a795ac23ddb5e5546b63d1d37d6f94a5, type: 3}
