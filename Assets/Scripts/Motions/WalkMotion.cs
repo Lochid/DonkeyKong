@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(IRigidbodyAdapter))]
 [RequireComponent(typeof(IHorizontalControl))]
 [RequireComponent(typeof(IJumpMotionState))]
-public class JumpMotion : MonoBehaviour
+public class WalkMotion : MonoBehaviour
 {
     [SerializeField]
     private float horizontalSpeed = 500f;
