@@ -1,9 +1,9 @@
 ﻿public interface IBody2D
 {
+    float PositionY { get; }
     float HorizontalSpeed { get; }
     float VerticalSpeed { get; }
-    void MoveLeft();
-    void MoveRight();
-    void MoveUp();
-    void Stop();
+    void PutHorizontalForce(float force);
+    void PutVerticalForce(float force);
+    void AddVerticalPosition(float position);
 }
