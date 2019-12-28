@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(IWalkMotion))]
+[RequireComponent(typeof(IJumpMotion))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class AnimateWorker : MonoBehaviour
@@ -8,6 +9,7 @@ public class AnimateWorker : MonoBehaviour
 
     private MotionState _motionState;
     private IWalkMotion _walkMotion;
+    private IJumpMotion _jumpMotion;
     private Animator animator;
     private SpriteRenderer sprite;
 
@@ -16,12 +18,17 @@ public class AnimateWorker : MonoBehaviour
         animator = GetComponent<Animator>();
         _motionState = new MotionState(animator);
         _walkMotion = GetComponent<IWalkMotion>();
+        _jumpMotion = GetComponent<IJumpMotion>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
         var next = true;
+        if (next)
+        {
+            next = !AnimateLand();
+        }
         if (next)
         {
             next = !AnimateIdle();
@@ -87,9 +94,19 @@ public class AnimateWorker : MonoBehaviour
 
     private bool AnimateFall()
     {
-        if (_walkMotion.Fall)
+        if (_jumpMotion.Fall)
         {
             _motionState.Fall();
+            return true;
+        }
+        return false;
+    }
+
+    private bool AnimateLand()
+    {
+        if (_jumpMotion.Land)
+        {
+            _motionState.Land();
             return true;
         }
         return false;

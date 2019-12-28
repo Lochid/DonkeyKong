@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public class IdleState : IMotionState
+public class LandState : IMotionState
 {
     private Animator _motionAnimator;
 
-    public IdleState(Animator motionAnimator)
+    public LandState(Animator motionAnimator)
     {
         _motionAnimator = motionAnimator;
-        _motionAnimator.SetTrigger("Idle");
+        _motionAnimator.SetTrigger("Land");
     }
 
     public IMotionState Idle()
@@ -27,6 +27,6 @@ public class IdleState : IMotionState
 
     public IMotionState Land()
     {
-        return new LandState(_motionAnimator);
+        return this;
     }
 }

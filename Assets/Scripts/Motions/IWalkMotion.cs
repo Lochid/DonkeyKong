@@ -4,5 +4,4 @@
     bool WalkRight { get; }
     bool Stop { get; }
     bool Walk { get; }
-    bool Fall { get; }
 }

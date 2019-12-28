@@ -24,4 +24,9 @@ public class WalkState : IMotionState
     {
         return new FallState(_motionAnimator);
     }
+
+    public IMotionState Land()
+    {
+        return new LandState(_motionAnimator);
+    }
 }

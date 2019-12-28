@@ -26,4 +26,10 @@ public class MotionState : IMotionState
         state = state.Fall();
         return this;
     }
+
+    public IMotionState Land()
+    {
+        state = state.Land();
+        return this;
+    }
 }

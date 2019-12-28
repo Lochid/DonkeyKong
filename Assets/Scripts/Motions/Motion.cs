@@ -2,16 +2,18 @@
 
 [RequireComponent(typeof(IHorizontalControl))]
 [RequireComponent(typeof(IBody2D))]
-public class Motion : MonoBehaviour, IWalkMotion
+public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
 {
     public bool WalkLeft => body.HorizontalSpeed < -0.5f;
     public bool WalkRight => body.HorizontalSpeed > 0.5f;
     public bool Walk => WalkLeft || WalkRight;
-    public bool Fall => Mathf.Abs(body.VerticalSpeed) > 0.5f;
+    public bool Fall => Mathf.Abs(body.VerticalSpeed) > 1f;
     public bool Stop => !Walk && !Fall;
+    public bool Land { get; private set; } = false;
 
     private IHorizontalControl horizontalControl;
     private IBody2D body;
+    private bool prevFall;
 
     private void Start()
     {
@@ -24,6 +26,8 @@ public class Motion : MonoBehaviour, IWalkMotion
         CheckAndMoveLeft();
         CheckAndMoveRight();
         CheckAndStop();
+        CheckLand();
+        UpdateFall();
     }
 
     private void CheckAndMoveLeft()
@@ -48,5 +52,22 @@ public class Motion : MonoBehaviour, IWalkMotion
         {
             body.Stop();
         }
+    }
+
+    private void CheckLand()
+    {
+        if (!Fall && prevFall)
+        {
+            Land = true;
+        }
+        else
+        {
+            Land = false;
+        }
+    }
+
+    private void UpdateFall()
+    {
+        prevFall = Fall;
     }
 }
