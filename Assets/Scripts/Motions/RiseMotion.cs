@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(ITransformAdapter))]
+[RequireComponent(typeof(IRigidbodyAdapter))]
 [RequireComponent(typeof(ITimeAdapter))]
 public class RiseMotion : MonoBehaviour
 {
     [SerializeField]
-    private float verticalSpeed = 100;
+    private readonly float verticalSpeed = 100;
 
-    private ITransformAdapter transformAdapter;
+    private IRigidbodyAdapter rigidbodyAdapter;
     private ITimeAdapter timeAdapter;
 
     private void Start()
     {
-        transformAdapter = GetComponent<ITransformAdapter>();
+        rigidbodyAdapter = GetComponent<IRigidbodyAdapter>();
         timeAdapter = GetComponent<ITimeAdapter>();
     }
 
@@ -24,6 +24,6 @@ public class RiseMotion : MonoBehaviour
 
     private void Move()
     {
-        transformAdapter.Translate(new Vector2(0, 1) * timeAdapter.deltaTime * verticalSpeed);
+        rigidbodyAdapter.MovePosition(rigidbodyAdapter.position + (new Vector2(0, 1) * timeAdapter.deltaTime * verticalSpeed));
     }
 }

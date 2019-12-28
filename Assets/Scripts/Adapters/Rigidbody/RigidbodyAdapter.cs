@@ -21,4 +21,9 @@ public class RigidbodyAdapter : MonoBehaviour, IRigidbodyAdapter
     {
         body = GetComponent<Rigidbody2D>();
     }
+
+    public void MovePosition(Vector2 position)
+    {
+        body.MovePosition(position);
+    }
 }
