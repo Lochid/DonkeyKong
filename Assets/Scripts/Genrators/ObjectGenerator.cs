@@ -19,6 +19,7 @@ public class ObjectGenerator : MonoBehaviour
     
     private void GenerateObject()
     {
-        Instantiate(obj, transformAdapter.position, Quaternion.identity);
+        var newObj = Instantiate(obj, transformAdapter.position, Quaternion.identity);
+        newObj.AddComponent<Destroyable>();
     }
 }
