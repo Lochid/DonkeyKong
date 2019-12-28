@@ -4,7 +4,7 @@ public class MotionState : IMotionState
 {
     private IMotionState state;
 
-    public MotionState(Animator motionAnimator)
+    public MotionState(AnimatorAdapter motionAnimator)
     {
         state = new IdleState(motionAnimator);
     }

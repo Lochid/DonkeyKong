@@ -2,9 +2,9 @@
 
 public class FallState : IMotionState
 {
-    private Animator _motionAnimator;
+    private AnimatorAdapter _motionAnimator;
 
-    public FallState(Animator motionAnimator)
+    public FallState(AnimatorAdapter motionAnimator)
     {
         _motionAnimator = motionAnimator;
         _motionAnimator.SetTrigger("Fall");

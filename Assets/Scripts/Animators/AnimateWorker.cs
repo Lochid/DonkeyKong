@@ -1,94 +1,36 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(IWalkMotion))]
-[RequireComponent(typeof(IJumpMotion))]
-[RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(IWalkMotionState))]
+[RequireComponent(typeof(IJumpMotionState))]
+[RequireComponent(typeof(AnimatorAdapter))]
 public class AnimateWorker : MonoBehaviour
 {
-
-    private MotionState _motionState;
-    private IWalkMotion _walkMotion;
-    private IJumpMotion _jumpMotion;
-    private Animator animator;
-    private SpriteRenderer sprite;
+    private MotionState motionState;
+    private IWalkMotionState walkMotion;
+    private IJumpMotionState jumpMotion;
+    private AnimatorAdapter animator;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        _motionState = new MotionState(animator);
-        _walkMotion = GetComponent<IWalkMotion>();
-        _jumpMotion = GetComponent<IJumpMotion>();
-        sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<AnimatorAdapter>();
+        motionState = new MotionState(animator);
+        walkMotion = GetComponent<IWalkMotionState>();
+        jumpMotion = GetComponent<IJumpMotionState>();
     }
 
     private void Update()
     {
-        var moving = true;
-        var turning = true;
-        if (moving)
-        {
-            moving = !AnimateLand();
-        }
-        if (moving)
-        {
-            moving = !AnimateFall();
-            turning = moving;
-        }
-        if (moving)
-        {
-            moving = !AnimateIdle();
-        }
-        if (moving)
-        {
-            moving = !AnimateWalk();
-        }
-        if (turning)
-        {
-            turning = !TurnLeft();
-        }
-        if (turning)
-        {
-            turning = !TurnRight();
-        }
+        AnimateLand();
+        AnimateFall();
+        AnimateWalk();
+        AnimateIdle();
     }
 
-    private bool TurnLeft()
+    private bool AnimateLand()
     {
-        if (_walkMotion.WalkLeft)
+        if (jumpMotion.Land)
         {
-            sprite.flipX = true;
-            return true;
-        }
-
-        return false;
-    }
-
-    private bool TurnRight()
-    {
-        if (_walkMotion.WalkRight)
-        {
-            sprite.flipX = false;
-            return true;
-        }
-        return false;
-    }
-
-    private bool AnimateIdle()
-    {
-        if (_walkMotion.Stop)
-        {
-            _motionState.Idle();
-            return true;
-        }
-        return false;
-    }
-
-    private bool AnimateWalk()
-    {
-        if (_walkMotion.Walk)
-        {
-            _motionState.Walk();
+            motionState.Land();
             return true;
         }
         return false;
@@ -96,19 +38,29 @@ public class AnimateWorker : MonoBehaviour
 
     private bool AnimateFall()
     {
-        if (_jumpMotion.Fall)
+        if (jumpMotion.Fall && !jumpMotion.Land)
         {
-            _motionState.Fall();
+            motionState.Fall();
             return true;
         }
         return false;
     }
 
-    private bool AnimateLand()
+    private bool AnimateWalk()
     {
-        if (_jumpMotion.Land)
+        if (walkMotion.Walk && !jumpMotion.Fall && !jumpMotion.Land)
         {
-            _motionState.Land();
+            motionState.Walk();
+            return true;
+        }
+        return false;
+    }
+
+    private bool AnimateIdle()
+    {
+        if (walkMotion.Stop && !walkMotion.Walk && !jumpMotion.Fall && !jumpMotion.Land)
+        {
+            motionState.Idle();
             return true;
         }
         return false;

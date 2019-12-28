@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 591976240152424295}
   - component: {fileID: 591976240152424294}
   - component: {fileID: 591976240152424296}
-  - component: {fileID: 1014073398804633863}
-  - component: {fileID: 1014073398804633856}
+  - component: {fileID: 9028900764895698832}
+  - component: {fileID: 867037934195060134}
+  - component: {fileID: 8163071589511805576}
   - component: {fileID: 1014073398804633862}
   m_Layer: 0
   m_Name: ElevatorPlatform
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 320, y: 32}
+  m_Size: {x: 60, y: 32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -101,15 +102,15 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 64, y: 32}
-    newSize: {x: 320, y: 32}
+    newSize: {x: 60, y: 32}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 320, y: 32}
+  m_Size: {x: 60, y: 32}
   m_EdgeRadius: 0
---- !u!50 &1014073398804633863
+--- !u!50 &9028900764895698832
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -117,20 +118,20 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591976240152424293}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
---- !u!114 &1014073398804633856
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!114 &867037934195060134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,7 +140,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 591976240152424293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fb963f0719078f4e85cac41c0a531a0, type: 3}
+  m_Script: {fileID: 11500000, guid: b77a7c9edc7194c4a9170e5be24e4690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8163071589511805576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591976240152424293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b271685036c53247922cbcd38a0b2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1014073398804633862
@@ -154,5 +167,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b35ffd996e82844da8a901870fb46f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verticalSpeed: 500
-  lastPosition: 1000
+  verticalSpeed: 1
