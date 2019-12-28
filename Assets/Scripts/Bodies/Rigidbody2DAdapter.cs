@@ -6,45 +6,24 @@ public class Rigidbody2DAdapter : MonoBehaviour, IBody2D
     public float HorizontalSpeed => body.velocity.x;
     public float VerticalSpeed => body.velocity.y;
 
-    [SerializeField]
-    private float horizontalSpeed = 500f;
-    [SerializeField]
-    private float verticalSpeed = 500f;
     private Rigidbody2D body;
-    private Vector2 horizontalMoveVector;
 
     private void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        horizontalMoveVector = new Vector2(horizontalSpeed, 0);
     }
 
-
-    public void MoveLeft()
+    public void PutHorizontalForce(float force)
     {
         var velocity = body.velocity;
-        velocity.x = -horizontalSpeed;
+        velocity.x = force;
         body.velocity = velocity;
     }
 
-    public void MoveRight()
+    public void PutVerticalForce(float force)
     {
         var velocity = body.velocity;
-        velocity.x = horizontalSpeed;
-        body.velocity = velocity;
-    }
-
-    public void MoveUp()
-    {
-        var velocity = body.velocity;
-        velocity.y = verticalSpeed;
-        body.velocity = velocity;
-    }
-
-    public void Stop()
-    {
-        var velocity = body.velocity;
-        velocity.x = 0;
+        velocity.y = force;
         body.velocity = velocity;
     }
 }

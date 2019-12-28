@@ -5,6 +5,11 @@
 [RequireComponent(typeof(IBody2D))]
 public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
 {
+    [SerializeField]
+    private float horizontalSpeed = 500f;
+    [SerializeField]
+    private float verticalSpeed = 500f;
+
     public bool WalkLeft => body.HorizontalSpeed < -0.5f;
     public bool WalkRight => body.HorizontalSpeed > 0.5f;
     public bool Walk => WalkLeft || WalkRight;
@@ -38,7 +43,7 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
     {
         if (horizontalControl.MoveLeft && !Fall)
         {
-            body.MoveLeft();
+            body.PutHorizontalForce(-horizontalSpeed);
         }
     }
 
@@ -46,7 +51,7 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
     {
         if (horizontalControl.MoveRight && !Fall)
         {
-            body.MoveRight();
+            body.PutHorizontalForce(horizontalSpeed);
         }
     }
 
@@ -54,7 +59,7 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
     {
         if (jumpControl.Jump && !Fall)
         {
-            body.MoveUp();
+            body.PutVerticalForce(verticalSpeed);
         }
     }
 
@@ -62,7 +67,7 @@ public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
     {
         if (!horizontalControl.MoveLeft && !horizontalControl.MoveRight && !Fall)
         {
-            body.Stop();
+            body.PutHorizontalForce(0);
         }
     }
 

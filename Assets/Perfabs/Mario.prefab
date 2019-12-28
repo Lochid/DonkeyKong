@@ -132,7 +132,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &2217343857146081329
 Animator:
   serializedVersion: 3
@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 500
+  verticalSpeed: 500
 --- !u!114 &2217343857146081331
 MonoBehaviour:
   m_ObjectHideFlags: 0

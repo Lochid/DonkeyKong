@@ -2,8 +2,6 @@
 {
     float HorizontalSpeed { get; }
     float VerticalSpeed { get; }
-    void MoveLeft();
-    void MoveRight();
-    void MoveUp();
-    void Stop();
+    void PutHorizontalForce(float force);
+    void PutVerticalForce(float force);
 }
