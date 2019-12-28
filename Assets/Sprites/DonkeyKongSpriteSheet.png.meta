@@ -6,6 +6,8 @@ TextureImporter:
     21300002: MarioIdle
     21300004: MarioWalk1
     21300006: MarioWalk2
+    21300008: MarioFall
+    21300010: MarioLand
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -167,13 +169,53 @@ TextureImporter:
         width: 60
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 34d7302bf64def144b5049f5ab0b9774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioFall
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 2656
+        width: 64
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86e5479be1355db42b6a795af8fb45f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioLand
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 2656
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a08883cb961f20489f639cf29ae7068
       vertices: []
       indices: 
       edges: []

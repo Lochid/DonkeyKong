@@ -4,6 +4,7 @@
 public class Rigidbody2DAdapter : MonoBehaviour, IBody2D
 {
     public float HorizontalSpeed => body.velocity.x;
+    public float VerticalSpeed => body.velocity.y;
 
     [SerializeField]
     private float horizontalSpeed = 500f;
