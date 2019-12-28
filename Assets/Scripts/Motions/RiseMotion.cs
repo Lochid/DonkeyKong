@@ -5,7 +5,7 @@
 public class RiseMotion : MonoBehaviour
 {
     [SerializeField]
-    private readonly float verticalSpeed = 100;
+    private float verticalSpeed = 100;
 
     private IRigidbodyAdapter rigidbodyAdapter;
     private ITimeAdapter timeAdapter;
