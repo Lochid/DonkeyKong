@@ -1,90 +1,48 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-[RequireComponent(typeof(IHorizontalControl))]
-[RequireComponent(typeof(IJumpControl))]
 [RequireComponent(typeof(IBody2D))]
-public class Motion : MonoBehaviour, IWalkMotion, IJumpMotion
+public class ElevatorMotion : MonoBehaviour
 {
     [SerializeField]
-    private float horizontalSpeed = 500f;
+    private float verticalSpeed = 10;
     [SerializeField]
-    private float verticalSpeed = 500f;
+    private float lastPosition = 10;
 
-    public bool WalkLeft => body.HorizontalSpeed < -0.5f;
-    public bool WalkRight => body.HorizontalSpeed > 0.5f;
-    public bool Walk => WalkLeft || WalkRight;
-    public bool Fall => Mathf.Abs(body.VerticalSpeed) > 1f;
-    public bool Stop => !Walk && !Fall;
-    public bool Land { get; private set; } = false;
+    public event Action<ElevatorMotion> CompletedMotion;
 
-    private IHorizontalControl horizontalControl;
-    private IJumpControl jumpControl;
     private IBody2D body;
-    private bool prevFall;
+    private float startPosition;
+    private bool done = false;
 
     private void Start()
     {
-        horizontalControl = GetComponent<IHorizontalControl>();
-        jumpControl = GetComponent<IJumpControl>();
         body = GetComponent<IBody2D>();
+        startPosition = body.PositionY;
+        CompletedMotion += (ElevatorMotion motion) => { };
     }
 
     private void FixedUpdate()
     {
-        CheckAndMoveLeft();
-        CheckAndMoveRight();
-        CheckAndMoveUp();
-        CheckAndStop();
-        CheckLand();
-        UpdateFall();
+        CheckPosition();
+        Move();
     }
 
-    private void CheckAndMoveLeft()
+    private void CheckPosition()
     {
-        if (horizontalControl.MoveLeft && !Fall)
+        if (Math.Abs(body.PositionY - startPosition) >= Math.Abs(lastPosition))
         {
-            body.PutHorizontalForce(-horizontalSpeed);
+            done = true;
+            CompletedMotion(this);
         }
     }
 
-    private void CheckAndMoveRight()
-    {
-        if (horizontalControl.MoveRight && !Fall)
-        {
-            body.PutHorizontalForce(horizontalSpeed);
-        }
-    }
 
-    private void CheckAndMoveUp()
+    private void Move()
     {
-        if (jumpControl.Jump && !Fall)
+        if (!done)
         {
-            body.PutVerticalForce(verticalSpeed);
+            body.AddVerticalPosition(verticalSpeed);
         }
-    }
-
-    private void CheckAndStop()
-    {
-        if (!horizontalControl.MoveLeft && !horizontalControl.MoveRight && !Fall)
-        {
-            body.PutHorizontalForce(0);
-        }
-    }
-
-    private void CheckLand()
-    {
-        if (!Fall && prevFall)
-        {
-            Land = true;
-        }
-        else
-        {
-            Land = false;
-        }
-    }
-
-    private void UpdateFall()
-    {
-        prevFall = Fall;
     }
 }

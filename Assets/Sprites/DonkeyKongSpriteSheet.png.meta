@@ -8,6 +8,8 @@ TextureImporter:
     21300006: MarioWalk2
     21300008: MarioFall
     21300010: MarioLand
+    21300012: DonkeyKongSpriteSheet_0
+    21300014: ElevatorSpawner
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -209,13 +211,53 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 4a08883cb961f20489f639cf29ae7068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DonkeyKongSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 1302
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131d1cd1f527fad4b819e8461d08d270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElevatorSpawner
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1248
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00a3a8920facdf149a32c3dc99a6ae42
       vertices: []
       indices: 
       edges: []
