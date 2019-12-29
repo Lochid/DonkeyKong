@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
 
-public class BarrelControl : MonoBehaviour, IHorizontalControl
+public class BarrelControl : MonoBehaviour, IHorizontalControl, IMirrorTurnControl
 {
-    public bool MoveLeft { get; } = false;
-    public bool MoveRight { get; } = true;
+    public bool MoveLeft => !MoveRight;
+    public bool MoveRight { get; private set; } = true;
+
+    public void Turn()
+    {
+        MoveRight = !MoveRight;
+    }
 }
