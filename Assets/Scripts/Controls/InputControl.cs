@@ -51,7 +51,7 @@ public class InputControl : MonoBehaviour, IHorizontalControl, IJumpControl
         {
             Jump = true;
         }
-        else if(input.GetKeyUp(KeyCode.Space))
+        else if (input.GetKeyUp(KeyCode.Space))
         {
             Jump = false;
         }

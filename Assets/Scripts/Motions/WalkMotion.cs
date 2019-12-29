@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(IRigidbodyAdapter))]
 [RequireComponent(typeof(IHorizontalControl))]
 [RequireComponent(typeof(IJumpMotionState))]
-public class WalkMotion : MonoBehaviour
+public class WalkMotion : MonoBehaviour, IMirrorTurnControl
 {
     [SerializeField]
     private float horizontalSpeed = 500f;
@@ -60,5 +60,10 @@ public class WalkMotion : MonoBehaviour
         var velocity = rigidbodyAdapter.velocity;
         velocity.x = force;
         rigidbodyAdapter.velocity = velocity;
+    }
+
+    public void Turn()
+    {
+        PutHorizontalForce(-rigidbodyAdapter.velocity.x);
     }
 }
