@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(IRigidbodyAdapter))]
 [RequireComponent(typeof(IHorizontalControl))]

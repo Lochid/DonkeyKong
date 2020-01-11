@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2217343857146081333}
   - component: {fileID: 2217343857146081329}
   - component: {fileID: 114440155304287090}
-  - component: {fileID: 3942335639324126829}
   - component: {fileID: 6969912176014110244}
   - component: {fileID: 7298486898565951954}
   - component: {fileID: 8821132150379287006}
@@ -26,6 +25,7 @@ GameObject:
   - component: {fileID: 513507715713647041}
   - component: {fileID: 2217343857146081325}
   - component: {fileID: 5403086007627904861}
+  - component: {fileID: 3942335639324126829}
   m_Layer: 0
   m_Name: Mario
   m_TagString: Untagged
@@ -173,18 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb297fbbc3975a04ba8b71d55f0295b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3942335639324126829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2217343857146081338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 393956c701b4c5f46914e57ea5f4ec3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6969912176014110244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 939e150393a35e2448de70a2db1093b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalSpeed: 500
+  verticalSpeed: 500
 --- !u!114 &513507715713647041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,6 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de23bff3b6966044783d552550a022ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalSpeed: 500
+  verticalSpeed: 500
 --- !u!114 &2217343857146081325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,5 +309,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad1c446ecea31e74fa6b69ef3f1bb9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3942335639324126829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2217343857146081338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393956c701b4c5f46914e57ea5f4ec3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
