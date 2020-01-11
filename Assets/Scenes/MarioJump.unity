@@ -270,6 +270,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2217343857146081338, guid: 64a36e31990fb4e499d634028a0579a8,
+        type: 3}
+      propertyPath: m_Name
+      value: Mario
+      objectReference: {fileID: 0}
     - target: {fileID: 2217343857146081333, guid: 64a36e31990fb4e499d634028a0579a8,
         type: 3}
       propertyPath: m_Constraints
@@ -278,12 +283,12 @@ PrefabInstance:
     - target: {fileID: 2217343857146081334, guid: 64a36e31990fb4e499d634028a0579a8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -441.81152
+      value: -254
       objectReference: {fileID: 0}
     - target: {fileID: 2217343857146081334, guid: 64a36e31990fb4e499d634028a0579a8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -416.4386
+      value: -323
       objectReference: {fileID: 0}
     - target: {fileID: 2217343857146081334, guid: 64a36e31990fb4e499d634028a0579a8,
         type: 3}
@@ -329,11 +334,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2217343857146081338, guid: 64a36e31990fb4e499d634028a0579a8,
-        type: 3}
-      propertyPath: m_Name
-      value: Mario
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64a36e31990fb4e499d634028a0579a8, type: 3}
